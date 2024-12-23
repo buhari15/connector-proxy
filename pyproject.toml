@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "connector-proxy"
+version = "0.1.0"
+description = "Connector proxy, which serves as container for connectors"
+authors = ["Buhari Abubakar <buharikwmbo@hotmail.com>"]
+license = "LGPL"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+spiffworkflow-proxy = { git = "https://github.com/sartography/spiffworkflow-proxy.git"}
+
+connector-aws = {git = "https://github.com/sartography/connector-aws.git"}
+connector-http = {git = "https://github.com/sartography/connector-http.git"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
