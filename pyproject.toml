@@ -13,6 +13,7 @@ spiffworkflow-proxy = { git = "https://github.com/sartography/spiffworkflow-prox
 
 connector-aws = {git = "https://github.com/sartography/connector-aws.git"}
 connector-http = {git = "https://github.com/sartography/connector-http.git"}
+connector-pdf = {get = "https://github.com/buhari15/pdf-connector.git"}
 
 
 [build-system]
