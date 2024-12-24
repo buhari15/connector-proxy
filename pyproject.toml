@@ -8,11 +8,11 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-
+Flask = "^2.2.2"
 spiffworkflow-proxy = { git = "https://github.com/sartography/spiffworkflow-proxy"}
-
 connector-http = {git = "https://github.com/sartography/connector-http.git"}
 connector-pdf = {git = "https://github.com/buhari15/connector-pdf.git"}
+gunicorn = "^20.1.0"
 
 [build-system]
 requires = ["poetry-core"]
