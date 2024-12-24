@@ -2,7 +2,7 @@
 services:
   spiffworkflow-connector:
     build:
-      context: .
+      context: connector-proxy
       dockerfile: dev.Dockerfile
     user: "${RUN_AS}"
     environment:
