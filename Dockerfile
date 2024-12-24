@@ -5,7 +5,7 @@ ENV VIRTUAL_ENV=/app/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-WORKDIR /connector_proxy
+WORKDIR /app
 
 
 ######################## - DEPLOYMENT
@@ -46,9 +46,9 @@ RUN apt-get update \
 
 # poetry install takes a long time and can be cached if dependencies don't change,
 # so that's why we tolerate running it twice.
-COPY pyproject.toml poetry.lock /connector_proxy/
+COPY pyproject.toml poetry.lock /app/
 
-COPY . /connector_proxy
+COPY . /app
 RUN poetry install
 
 
@@ -60,6 +60,6 @@ FROM deployment AS final
 LABEL source="https://github.com/buhari15/connector-proxy"
 LABEL description="Connector proxy component for SpiffWorkflow"
 
-COPY --from=setup /connector_proxy /connector_proxy
+COPY --from=setup /app /app
 
 CMD ["./bin/boot_server_in_docker"]
