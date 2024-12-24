@@ -11,7 +11,6 @@ python = "^3.11"
 
 spiffworkflow-proxy = { git = "https://github.com/sartography/spiffworkflow-proxy"}
 
-
 connector-http = {git = "https://github.com/sartography/connector-http.git"}
 connector-pdf = {git = "https://github.com/buhari15/connector-pdf.git"}
 
