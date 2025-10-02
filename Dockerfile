@@ -1,5 +1,5 @@
 # Base image to share ENV vars that activate VENV.
-FROM python:3.11.6-slim-bookworm AS base
+FROM python:3.11.10-slim-bookworm AS base
 
 ENV VIRTUAL_ENV=/app/venv
 RUN python3 -m venv $VIRTUAL_ENV
@@ -46,12 +46,16 @@ RUN apt-get update \
 
 # poetry install takes a long time and can be cached if dependencies don't change,
 # so that's why we tolerate running it twice.
+
+
 COPY pyproject.toml poetry.lock /app/
+
 
 COPY . /app
 RUN poetry install
 
-
+COPY  bin/boot_server_in_docker bin/
+RUN chmod +x /app/bin/boot_server_in_docker
 ######################## - FINAL
 
 # Final image without setup dependencies.
